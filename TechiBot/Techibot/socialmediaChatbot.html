@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialMedia Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link class="d-logo" rel="icon" type="image/x-icon" href="./logo.png">
+
+    <style>
+        .rating {
+            direction: rtl;
+            display: inline-block;
+
+        }
+
+
+        .star {
+            font-size: 50px;
+            cursor: pointer;
+            color: lightgray;
+        }
+
+
+
+        .star.selected {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+
+
+    <div id="services">
+        <a style="margin-left: 60px; font-size: 50px; color: rgb(91, 156, 253);" href="./index3.html"><i
+                class="fa-solid fa-circle-chevron-left"></i></a><br>
+        <div class="container" style="margin-top: -40px;">
+            <img style="width:200px; margin-bottom: -90px; border-radius: 5px   ;" src="./S-M.png" alt="">
+            <center>
+                <h1 class="sub-title" style="text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;">
+                    SocialMedia ChatBot Details</h1><br>
+
+            </center>
+            <div class="services-list" style="color: white;">
+                <img style="height: 700px; width: 500px; border-radius: 10px;" src="./chatbot.png"
+                    alt="AI Assistent Pic">
+                <div style="margin-left: -130px; width: 650px;">
+                    <h2>SocialMedia ChatBot</h2>
+                    <p style="font-size: 20px;">Social Media Chatbot
+                        Elevate your social media engagement with our advanced Social Media Chatbot. Designed to enhance
+                        customer interactions and streamline communication, our chatbot offers:
+
+                        Instant Responses
+                        Provide your audience with immediate answers to their inquiries, improving customer satisfaction
+                        and engagement.
+
+                        24/7 Availability
+                        Never miss a message! Our chatbot operates around the clock, ensuring your customers receive
+                        support at any time.
+
+                        Personalized Interactions
+                        Customize responses based on user preferences and past interactions to create a more
+                        personalized experience.</p><br><br>
+                    <center>
+                        <span class="rating">
+                            <h3 id="rating-output">Rating: 0</h3>
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </span><br>
+
+
+                       <h3>Quantity :</h3><br>
+
+                        <button class="button"
+                            style="margin-left: 5px; border: none; width: 30px; height: 30px; border-radius: 5px;"
+                            id="increaseButton"><i style="cursor: pointer; font-size: 20px; margin-top: 5px;"
+                                class="fa-solid fa-plus"></i></button>&nbsp &nbsp
+                        <span id="counter" style="font-size: 18px;">0</span>&nbsp &nbsp
+
+                        <button class="button"
+                            style="margin-right: 5px; border: none; width: 30px; height: 30px; border-radius: 5px;"
+                            id="decreaseButton"><i style="cursor: pointer; font-size: 20px; margin-top: 5px;"
+                                class="fa-solid fa-minus"></i></button>
+
+
+                        
+                        <br> <br><a class="btn btn2"
+                            style="font-size: 18px; box-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;"
+                            href="https://www.linkedin.com/in/nabeelvohra/">Buy Now</a>&nbsp &nbsp &nbsp
+                        <a class="btn btn2"
+                            style="font-size: 18px; box-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;"
+                            href="https://www.linkedin.com/in/nabeelvohra/">Add To Cart</a>
+                    </center>
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <script>let counter = 0;
+
+        document.getElementById("increaseButton").addEventListener("click", function () {
+            counter++;
+            document.getElementById("counter").textContent = counter;
+        });</script>
+    <script>let counter1 = 10; // Initial value
+
+        document.getElementById("decreaseButton").addEventListener("click", function () {
+            if (counter > 0) { // Check to ensure value doesn't go below 0
+                counter--; // Decrease the counter by 1
+                document.getElementById("counter").textContent = counter; // Update the displayed value
+            } else {
+                alert("Value cannot go below 0!"); // Alert if value is already 0
+            }
+        });
+
+        const stars = document.querySelectorAll('.star');
+        const ratingOutput = document.getElementById('rating-output');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = star.getAttribute('data-value');
+                updateRating(value);
+            });
+        });
+
+        function updateRating(value) {
+            stars.forEach(star => {
+                if (star.getAttribute('data-value') <= value) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+            ratingOutput.textContent = `Rating: ${value}`;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
